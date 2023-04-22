@@ -20,35 +20,20 @@ const options = {
   
   let countdownInterval;
 
-  flatpickr("#datetime-picker", {
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    onClose: function(selectedDates, daysDisplay, instance) {
-      const selectedDate = selectedDates[0];
-      const currentDate = new Date();
-      if (selectedDate < currentDate) {
-        window.alert("Please choose a date in the future");
-      } else {
-        startButton.disabled = false;
-      }
-    }
-  });
-  
-  const onClose = function(selectedDates) {
-    const selectedDate = selectedDates[0];
-    const now = new Date();
-    if (selectedDate < now) {
-      window.alert("Please choose a date in the future");
-      startButton.disabled = true;
-    } else {
-      startButton.disabled = false;
-    }
-  };
-  
   flatpickr(dateInput, {
     enableTime: true,
     minDate: "today",
-    onClose: onClose,
+    dateFormat: "Y-m-d H:i",
+    onClose: function(selectedDates) {
+        const selectedDate = selectedDates[0];
+        const now = new Date();
+        if (selectedDate < now) {
+          window.alert("Please choose a date in the future");
+          startButton.disabled = true;
+        } else {
+          startButton.disabled = false;
+        }
+    }
   });
   
     startButton.addEventListener("click", function() {

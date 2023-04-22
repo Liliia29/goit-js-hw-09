@@ -1,4 +1,4 @@
-import flatpickr from "flatpickr";
+import flatpickr from 'flatpickr';
 import "flatpickr/dist/flatpickr.min.css";
 
 const options = {
@@ -63,4 +63,5 @@ const options = {
         return value.toString().padStart(2, '0');
       }, 1000);
   });
+
 

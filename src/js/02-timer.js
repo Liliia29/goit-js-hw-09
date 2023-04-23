@@ -11,6 +11,13 @@ const options = {
     },
   };
 
+  const startButton = document.querySelector('[data-start]');
+  const daysDisplay = document.querySelector('[data-days]');
+  const hoursDisplay = document.querySelector('[data-hours]');
+  const minutesDisplay = document.querySelector('[data-minutes]');
+  const secondsDisplay = document.querySelector('[data-seconds]');
+  
+  
   countdownInterval = setInterval(function() {
     const ms = selectedDate.getTime() - new Date().getTime();
     const { days, hours, minutes, seconds } = convertMs(ms);
@@ -19,12 +26,6 @@ const options = {
     minutesDisplay.textContent = addLeadingZero(minutes);
     secondsDisplay.textContent = addLeadingZero(seconds);
   }, 1000);
-
-  const startButton = document.querySelector('[data-start]');
-  const daysDisplay = document.querySelector('[data-days]');
-  const hoursDisplay = document.querySelector('[data-hours]');
-  const minutesDisplay = document.querySelector('[data-minutes]');
-  const secondsDisplay = document.querySelector('[data-seconds]');
   
   let countdownInterval;
 
